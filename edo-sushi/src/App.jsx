@@ -14,7 +14,7 @@ function App() {
   const currentHour = current.getHours();
   const currentMinute = current.getMinutes();
 
-  const days = Array.from({ length: 10 }, (_, i) => 20 + i);
+  const days = Array.from({ length: 15 }, (_, i) => 1 + i);
   const timesList = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 
   const [sede, setSede] = useState('');

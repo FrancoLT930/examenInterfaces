@@ -45,7 +45,7 @@
   margin-right: 10px;
 }
 
-/**/
+
 .nav {
   display: flex;
   align-items: center;
@@ -67,6 +67,25 @@
   cursor: pointer;
   font-size: 20px;
 }
+
+.header .nav .nav-link {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  margin-right: 10px;
+}
+
+.header .nav .nav-link:hover {
+  background-color: #f0c800;
+  color: #000;
+}
+
 
 .header-line {
   border: none;          
@@ -197,4 +216,10 @@
   color: #ffd700;
   text-decoration: none;
   margin-bottom: 5px;
+}
+
+.footer .footer-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
 }

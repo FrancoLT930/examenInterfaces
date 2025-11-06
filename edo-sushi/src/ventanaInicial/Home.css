@@ -2,7 +2,8 @@
 body {
   background-color: #000;
   color: #fff;
-  overflow-x: hidden; 
+  overflow-x: hidden;
+  font-family: 'Arial', sans-serif;
 }
 
 /* HEADER */
@@ -10,174 +11,299 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  border-bottom: 1px solid #fff; 
+  padding: 15px 40px;
+  border-bottom: 1px solid #333;
+  background-color: #111;
 }
 
 .logo img {
-  width: 100px;
+  height: 60px;          
+  width: auto;            
+  object-fit: contain;    
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  transition: transform 0.3s ease;
 }
+
 
 .nav-links {
   display: flex;
-  justify-content: center;
+  gap: 20px;
+  align-items: center;
 }
 
-.nav-links a {
+.nav-btn {
+  background: none;
+  border: none;
   color: #fff;
-  margin-left: 30px;
-  text-decoration: none;
   font-weight: 500;
-  transition: 0.3s;
-  padding: 8px 15px;
-  border-radius: 20px;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
-.nav-links a:hover {
+.nav-btn:hover {
   background-color: #f0c800;
   color: #000;
+  transform: translateY(-2px);
 }
 
-/*MAIN*/
+.btn-reservas {
+  background-color: #f0c800 !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.btn-reservas:hover {
+  background-color: #ffd700 !important;
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* MAIN */
 .main-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px;
+  padding: 60px 40px;
+  gap: 60px;
   flex-wrap: wrap;
-  gap: 40px;
+}
+
+.sushi-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .sushi-image img {
-  width: 400px;
-  max-width: 100%;
-  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(240, 200, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.sushi-image img:hover {
+  transform: scale(1.03);
 }
 
 .text-content {
-  max-width: 500px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+  text-align: left;
 }
 
 .logo-text {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .logo-text img {
-  width: 60px;
-}
-
-.logo-text span,
-.text-content span {
-  color: #f0c800;
+  height: 50px;
 }
 
 .logo-text span {
+  font-size: 18px;
   font-weight: bold;
+  color: #f0c800;
 }
 
 .text-content hr {
-  border: 0.5px solid #f0c800;
-  margin: 15px 0;
+  width: 60px;
+  height: 3px;
+  background-color: #f0c800;
+  border: none;
+  margin: 20px 0;
 }
 
 .text-content h2 {
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.text-content h2 span {
+  color: #f0c800;
+  font-weight: 600;
 }
 
 .text-content p {
-  margin-top: 20px;
   font-size: 18px;
+  margin-top: 15px;
+  color: #ddd;
 }
 
-/*FOOTER*/
+.text-content strong {
+  color: #f0c800;
+}
+
 .footer {
   background-color: #111;
+  padding: 50px 60px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 40px 80px;
+  gap: 40px;
+  border-top: 1px solid #333;
   font-size: 14px;
 }
 
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 220px;
+}
+
 .footer-left img {
-  width: 80px;
-  margin-bottom: 10px;
+  height: 60px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
 }
 
 .social-icons a {
   color: #f0c800;
-  font-size: 20px;
-  margin-right: 10px;
+  font-size: 22px;
+  transition: all 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffd700;
+  transform: translateY(-3px);
 }
 
 .contact-info p {
-  margin-top: 5px;
+  color: #aaa;
+  margin: 4px 0;
 }
 
 .footer-center {
   display: flex;
-  gap: 50px;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
 .footer-center ul {
   list-style: none;
+  padding: 0;
 }
 
 .footer-center li {
-  margin-bottom: 8px;
-  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.footer-center a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.footer-center a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #f0c800;
+  transition: width 0.3s;
+}
+
+.footer-center a:hover {
+  color: #f0c800;
+}
+
+.footer-center a:hover::after {
+  width: 100%;
 }
 
 .footer-right {
-  max-width: 300px;
+  min-width: 280px;
+}
+
+.newsletter-form label {
+  display: block;
+  margin-bottom: 12px;
+  color: #ccc;
+  font-size: 14px;
 }
 
 .newsletter {
   display: flex;
-  margin-top: 10px;
+  gap: 0;
+  margin-bottom: 12px;
 }
 
 .newsletter input {
   flex: 1;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px 0 0 5px;
+  padding: 10px 12px;
+  border: 1px solid #444;
+  background-color: #222;
+  color: #fff;
+  border-radius: 6px 0 0 6px;
+  font-size: 14px;
 }
 
 .newsletter button {
   background-color: #f0c800;
   color: #000;
   border: none;
-  padding: 6px 12px;
-  border-radius: 0 5px 5px 0;
+  padding: 0 16px;
+  border-radius: 0 6px 6px 0;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.newsletter button:hover {
+  background-color: #ffd700;
 }
 
 .privacy {
-  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #aaa;
 }
 
 .privacy a {
   color: #f0c800;
+  text-decoration: underline;
+}
+
+.payment {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .payment img {
-  width: 50px;
-  margin-top: 15px;
-  margin-right: 8px;
+  height: 32px;
 }
 
+
+
+/* RESPONSIVE */
 @media (max-width: 992px) {
   .navbar {
     flex-direction: column;
+    padding: 20px;
     text-align: center;
   }
 
-  .nav-links a {
-    margin: 10px;
+  .nav-links {
+    margin-top: 15px;
+    gap: 15px;
   }
 
   .main-section {
@@ -194,12 +320,30 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 30px 20px;
+    padding: 40px 20px;
   }
 
   .footer-center {
+    justify-content: center;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo img, .footer-left img {
+    height: 50px;
+  }
+
+  .nav-links {
     flex-direction: column;
-    gap: 20px;
+  }
+
+  .sushi-image {
+    max-width: 100%;
+  }
+
+  .text-content h2 {
+    font-size: 22px;
   }
 
   .newsletter {
@@ -208,47 +352,12 @@ body {
 
   .newsletter input,
   .newsletter button {
-    border-radius: 5px;
-    margin-bottom: 8px;
+    border-radius: 6px;
+  }
+
+  .newsletter button {
+    margin-top: 8px;
   }
 }
-
-@media (max-width: 576px) {
-  .logo img {
-    width: 60px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .sushi-image img {
-    width: 100%;
-  }
-
-  .text-content h2 {
-    font-size: 20px;
-  }
-
-  .footer {
-    padding: 20px;
-  }
-
-  .footer-center {
-    gap: 10px;
-  }
-
-  .payment img {
-    width: 40px;
-  }
-}
-
-
-
-
-
-
-
 
 

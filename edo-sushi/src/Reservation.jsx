@@ -97,6 +97,20 @@ function Reservation({ onBackToHome }) {
         `.trim();
 
         alert(confirmationMessage);
+
+      // LIMPIEZA DE CAMPOS
+    setSede('');
+    setSelectedDate(null);
+    setSelectedTime(null);
+    setNumPersons('');
+    setOccasion('');
+    setAllergies('');
+    setName('');
+    setSurname('');
+    setEmail('');
+    setPhone('');
+    setAcceptTerms(false);
+    setAcceptMessages(false);
     };
 
     return (

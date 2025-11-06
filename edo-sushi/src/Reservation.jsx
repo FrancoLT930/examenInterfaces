@@ -35,36 +35,36 @@ function Reservation({ onBackToHome }) {
     };
 
     const handleDateClick = (day) => {
-    const date = new Date(currentYear, currentMonth, day);
-    const today = new Date(currentYear, currentMonth, currentDay);
-    if (date >= today) {
+        const date = new Date(currentYear, currentMonth, day);
+        const today = new Date(currentYear, currentMonth, currentDay);
+        if (date >= today) {
         setSelectedDate(day);
         setSelectedTime(null);
         }
     };
 
     const handleTimeClick = (time) => {
-    if (!selectedDate) return;
-    const date = new Date(currentYear, currentMonth, selectedDate);
-    const today = new Date(currentYear, currentMonth, currentDay);
-    if (date > today) {
+        if (!selectedDate) return;
+        const date = new Date(currentYear, currentMonth, selectedDate);
+        const today = new Date(currentYear, currentMonth, currentDay);
+        if (date > today) {
         setSelectedTime(time);
         return;
-    }
+        }
     if (date.toDateString() === today.toDateString()) {
         const currentMinutes = currentHour * 60 + currentMinute;
         const timeMinutes = parseTime(time);
         if (timeMinutes >= currentMinutes) {
-        setSelectedTime(time);
+            setSelectedTime(time);
         }
-    }
+        }   
     };
 
     const handleSubmit = () => {
-    if (!acceptTerms || !sede || !selectedDate || !selectedTime || !numPersons || !name || !surname || !email || !phone) {
+        if (!acceptTerms || !sede || !selectedDate || !selectedTime || !numPersons || !name || !surname || !email || !phone) {
         alert('Por favor, completa todos los campos requeridos.');
         return;
-    }
+        }
 
     const reservation = {
         sede,
@@ -78,112 +78,103 @@ function Reservation({ onBackToHome }) {
         email,
         phone,
         acceptMessages,
-    };
+        };
 
     localStorage.setItem('reservation', JSON.stringify(reservation));
 
     const confirmationMessage = `
-Confirmación de Reserva:
-Sede: ${sede}
-Fecha: ${selectedDate}
-Hora: ${selectedTime}
-Número de Personas: ${numPersons}
-Ocasión Especial: ${occasion || 'Ninguna'}
-Alergias/Restricciones: ${allergies || 'Ninguna'}
-Nombre: ${name} ${surname}
-Email: ${email}
-Teléfono: ${phone}
-Acepta Mensajes: ${acceptMessages ? 'Sí' : 'No'}
-    `.trim();
+    Confirmación de Reserva:
+    Sede: ${sede}
+    Fecha: ${selectedDate}
+    Hora: ${selectedTime}
+    Número de Personas: ${numPersons}
+    Ocasión Especial: ${occasion || 'Ninguna'}
+    Alergias/Restricciones: ${allergies || 'Ninguna'}
+    Nombre: ${name} ${surname}
+    Email: ${email}
+    Teléfono: ${phone}
+    Acepta Mensajes: ${acceptMessages ? 'Sí' : 'No'}
+        `.trim();
 
-    alert(confirmationMessage);
+        alert(confirmationMessage);
     };
 
     return (
     <>
         <header className="header">
-        <div className="logo">
-            <img src={edoLogo} alt="EDO Sushi Bar" className="edo-header" />
-        </div>
-        <nav className="nav">
-            <button onClick={onBackToHome} className="nav-link">Inicio</button>
-            <a href="#">Locales</a>
-            <a href="#">Carta</a>
-            <button className="reservas-button">Reservas</button>
-        </nav>
+            <div className="logo">
+                <img src={edoLogo} alt="EDO Sushi Bar" className="edo-header" />
+            </div>
+            <nav className="nav">
+                <button onClick={onBackToHome} className="nav-link">Inicio</button>
+                <a href="#">Locales</a>
+                <a href="#">Carta</a>
+                <button className="reservas-button">Reservas</button>
+            </nav>
         </header>
         <hr className="header-line" />
 
-        <main className="main">
-        <h1 className="title">Reserva tu mesa</h1>
 
-        <select className="dropdown" value={sede} onChange={(e) => setSede(e.target.value)}>
-            <option value="">Selecciona tu sede</option>
-            <option value="Magdalena">Magdalena</option>
-            <option value="Miraflores">Miraflores</option>
-            <option value="San Isidro - Basadre">San Isidro - Basadre</option>
-            <option value="Surco - Trigal">Surco - Trigal</option>
-            <option value="San Miguel">San Miguel</option>
-            <option value="Surco - Jockey Plaza">Surco - Jockey Plaza</option>
-            <option value="Arequipa">Arequipa</option>
-            <option value="Salaverry">Salaverry</option>
-            <option value="Surco - El Polo">Surco - El Polo</option>
-            <option value="San Borja">San Borja</option>
-        </select>
+        <main className="main">
+            <h1 className="title">Reserva tu mesa</h1>
+            <select className="dropdown" value={sede} onChange={(e) => setSede(e.target.value)}>
+                <option value="">Selecciona tu sede</option>
+                <option value="Magdalena">Magdalena</option>
+                <option value="Miraflores">Miraflores</option>
+                <option value="San Isidro - Basadre">San Isidro - Basadre</option>
+                <option value="Surco - Trigal">Surco - Trigal</option>
+                <option value="San Miguel">San Miguel</option>
+                <option value="Surco - Jockey Plaza">Surco - Jockey Plaza</option>
+                <option value="Arequipa">Arequipa</option>
+                <option value="Salaverry">Salaverry</option>
+                <option value="Surco - El Polo">Surco - El Polo</option>
+                <option value="San Borja">San Borja</option>
+            </select>
 
         <label className="section-label">Fechas disponibles:</label>
         <div className="dates-container">
-            {days.map((day) => {
-                const date = new Date(currentYear, currentMonth, day);
-                const today = new Date(currentYear, currentMonth, currentDay);
-                const isPast = date < today;
-                const color = isPast ? 'gray' : 'yellow';
-                const isSelected = selectedDate === day;
-                return (
-                <button
-                key={day}
-                className={`date-button ${color} ${isSelected ? 'selected' : ''}`}
-                disabled={isPast}
-                onClick={() => handleDateClick(day)}
-            >
-                {day}
-                </button>
+        {days.map((day) => {
+            const date = new Date(currentYear, currentMonth, day);
+            const today = new Date(currentYear, currentMonth, currentDay);
+            const isPast = date < today;
+            const color = isPast ? 'gray' : 'yellow';
+            const isSelected = selectedDate === day;
+            return (
+            <button key={day} className={`date-button ${color} ${isSelected ? 'selected' : ''}`} disabled={isPast} onClick={() => handleDateClick(day)}>{day}</button>
             );
         })}
         </div>
 
         <label className="section-label">Horarios Disponibles:</label>
-        <div className="times-container">
-            {timesList.map((time) => {
-            let color = 'gray';
+        <div className="times-container">{timesList.map((time) => {let color = 'gray';
             if (selectedDate) {
                 const date = new Date(currentYear, currentMonth, selectedDate);
                 const today = new Date(currentYear, currentMonth, currentDay);
                 if (date > today) {
-                color = 'yellow';
-                } else if (date.toDateString() === today.toDateString()) {
+                    color = 'yellow';
+            } else if (date.toDateString() === today.toDateString()) {
                 const currentMinutes = currentHour * 60 + currentMinute;
                 const timeMinutes = parseTime(time);
                 color = timeMinutes < currentMinutes ? 'gray' : 'yellow';
-                }
+            }
             }
             const isSelected = selectedTime === time;
             const isDisabled = color === 'gray';
             return (
-            <button key={time}className={`time-button ${color} ${isSelected ? 'selected' : ''}`} disabled={isDisabled} onClick={() => handleTimeClick(time)}>{time}</button>
+                <button key={time} className={`time-button ${color} ${isSelected ? 'selected' : ''}`} disabled={isDisabled} onClick={() => handleTimeClick(time)}>{time}</button>
             );
         })}
         </div>
 
         <select className="dropdown" value={numPersons} onChange={(e) => setNumPersons(e.target.value)}>
             <option value="">Número de personas</option>
-            {Array.from({ length: 20 }, (_, i) => i + 1).map((n) => (
-            <option key={n} value={n}>
-                {n}
-            </option>
+                {Array.from({ length: 20 }, (_, i) => i + 1).map((n) => (
+            <option key={n} value={n}>{n}</option>
         ))}
         </select>
-        <p className="note"> Si se agenda más de 20 personas, agradecemos comunicarse via WhatsApp al +5197854321 para poder ayudarlos.</p>
+        <p className="note">
+        Si se agenda más de 20 personas, agradecemos comunicarse via WhatsApp al +5197854321 para poder ayudarlos.
+        </p>
 
         <label className="section-label">Detalles Adicionales(*):</label>
         <select className="dropdown" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
@@ -192,16 +183,17 @@ Acepta Mensajes: ${acceptMessages ? 'Sí' : 'No'}
             <option value="Aniversario">Aniversario</option>
             <option value="Otro">Otro</option>
         </select>
-        <input className="input" placeholder="Alergias o restricciones alimentarias" value={allergies} onChange={(e) => setAllergies(e.target.value)}/>
+        <input className="input" placeholder="Alergias o restricciones alimentarias" value={allergies} onChange={(e) => setAllergies(e.target.value)}
+        />
 
         <label className="section-label">Datos Personales:</label>
         <div className="personal-data">
-            <input className="input half" placeholder="Nombres" value={name} onChange={(e) => setName(e.target.value)}/>
-            <input className="input half" placeholder="Apellidos" value={surname} onChange={(e) => setSurname(e.target.value)}/>
+            <input className="input half" placeholder="Nombres" value={name} onChange={(e) => setName(e.target.value)} />
+            <input className="input half" placeholder="Apellidos" value={surname} onChange={(e) => setSurname(e.target.value)} />
         </div>
         <div className="personal-data">
-            <input className="input half" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <input className="input half" placeholder="Celular/Telefono" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+            <input className="input half" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input className="input half" placeholder="Celular/Telefono" value={phone} onChange={(e) => setPhone(e.target.value)} />
         </div>
 
         <div className="checkbox-container">
@@ -209,42 +201,71 @@ Acepta Mensajes: ${acceptMessages ? 'Sí' : 'No'}
             <label htmlFor="terms">Acepto los términos, condiciones y política de privacidad.</label>
         </div>
         <div className="checkbox-container">
-            <input type="checkbox" id="messages" checked={acceptMessages} onChange={(e) => setAcceptMessages(e.target.checked)}/>
+            <input type="checkbox" id="messages" checked={acceptMessages} onChange={(e) => setAcceptMessages(e.target.checked)} />
             <label htmlFor="messages">Acepto la recepción de mensajes via E-mail y/o SMS con fines comerciales.</label>
         </div>
-        <button className="reservar-button" onClick={handleSubmit}>Reservar
-        </button>
-        </main>
 
-    <footer className="footer">
-        <div className="footer-left">
+        <button className="reservar-button" onClick={handleSubmit}>
+            Reservar
+        </button>
+    </main>
+
+        <footer className="footer">
+            <div className="footer-left">
             <img src={edoLogo} alt="EDO Sushi Bar" className="edo-footer" />
             <div className="footer-social">
+                <a href="https://instagram.com/edosushibar" target="_blank" rel="noopener noreferrer">
                 <img src={instagramIcon} alt="Instagram" className="instagram-icono" />
+                </a>
+                <a href="https://facebook.com/edosushibar" target="_blank" rel="noopener noreferrer">
                 <img src={facebookIcon} alt="Facebook" className="facebook-icono" />
+                </a>
             </div>
-            <span className="footer-contact-item">+987854321</span>
+            <span className="footer-contact-item">+987 854 321</span>
             <span className="footer-contact-item">info@edosuship.com</span>
-        </div>
-        <div className="footer-links">
-            <a href="#">Nuestra carta</a>
-            <a href="#">Información Legal</a>
-            <a href="#">Términos y Condiciones de Uso</a>
-            <a href="#">Política de Privacidad</a>
-            <a href="#">Política de Cookies</a>
-            <a href="#">¿Quieres franquiciarnos y noticias?</a>
-        </div>
-        <div className="footer-right">
-            <a href="#" className="libro-reclamaciones">
-            <img src={bookIcon} alt="Libro de Reclamaciones" className="book-icon" />
-            Libro de Reclamaciones
-            </a>
-            <div className="footer-payment">
-                {/* Aquí puedes añadir Visa, Mastercard, etc. */}
             </div>
-        </div>
-    </footer>
-    </>
+
+            <div className="footer-links">
+            <ul>
+                <li><a href="#">Nuestra carta</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Nuestros locales</a></li>
+                <li><a href="#">Catering</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Información Legal</a></li>
+                <li><a href="#">Términos y Condiciones de Uso</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Política de Cookies</a></li>
+            </ul>
+            </div>
+
+            <div className="footer-right">
+            <form className="promociones-form">
+                <label>¿Quieres recibir promociones y noticias?</label>
+                <div className="promociones">
+                <input type="email" placeholder="Correo" />
+                <button type="submit">Send</button>
+                </div>
+                <div className="privacy">
+                <input type="checkbox" id="privacy-reserva" />
+                <label htmlFor="privacy-reserva">
+                    Acepto las <a href="#">Política de Privacidad</a>
+                </label>
+                </div>
+            </form>
+
+            <a href="#" className="libro-reclamaciones">
+                <img src={bookIcon} alt="Libro de Reclamaciones" className="book-icon" />
+                Libro de Reclamaciones
+            </a>
+
+            <div className="footer-payment">
+                {/* Agrega Visa, Mastercard, etc. aquí */}
+            </div>
+            </div>
+        </footer>
+        </>
     );
 }
 

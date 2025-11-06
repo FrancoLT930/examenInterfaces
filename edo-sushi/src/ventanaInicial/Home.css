@@ -73,8 +73,8 @@ body {
 
 .sushi-image {
   flex: 1;
-  min-width: 300px;
-  max-width: 500px;
+  min-width: 400px;
+  max-width: 600px;
 }
 
 .sushi-image img {
@@ -104,7 +104,7 @@ body {
 }
 
 .logo-text img {
-  height: 50px;
+  height: 80px;
 }
 
 .logo-text span {
@@ -161,7 +161,9 @@ body {
 }
 
 .footer-left img {
-  height: 60px;
+  height: 100px;
+  width: auto;
+  object-fit: contain;
 }
 
 .social-icons {

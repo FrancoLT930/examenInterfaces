@@ -166,11 +166,12 @@
 }
 
 .yellow:hover:not([disabled]) {
-  background-color: #ffed4e;
+  background-color: #ff4e4e;
   transform: scale(1.05);
 }
 
 .selected {
+  background-color: #ff4e4e;
   border: 3px solid #fff !important;
   transform: scale(1.1);
 }
@@ -235,7 +236,6 @@
   box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
 }
 
-/* === FOOTER UNIFICADO === */
 .footer {
   background-color: #111;
   padding: 50px 60px;
@@ -256,25 +256,27 @@
   min-width: 220px;
 }
 
-.edo-footer {
+
+.footer-edo-logo {
   height: 60px;
   width: auto;
   object-fit: contain;
 }
+
 
 .footer-social {
   display: flex;
   gap: 15px;
 }
 
-.instagram-icono, .facebook-icono {
-  height: 28px;
-  width: 28px;
+.social-icon {
+  height: 24px;
+  width: 24px;
   filter: brightness(0) invert(1);
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 
-.instagram-icono:hover, .facebook-icono:hover {
+.social-icon:hover {
   filter: brightness(0) invert(80%) sepia(80%) saturate(300%) hue-rotate(30deg);
   transform: translateY(-3px);
 }
@@ -368,19 +370,20 @@
   filter: grayscale(0%) brightness(100%);
 }
 
-.promociones-form label {
+
+.newsletter-form label {
   display: block;
   margin-bottom: 12px;
   font-size: 14px;
 }
 
-.promociones {
+.newsletter {
   display: flex;
   gap: 0;
   margin-bottom: 12px;
 }
 
-.promociones input {
+.newsletter input {
   flex: 1;
   padding: 10px 12px;
   border: 1px solid #444;
@@ -390,7 +393,7 @@
   font-size: 14px;
 }
 
-.promociones button {
+.newsletter button {
   background-color: #f0c800;
   color: #000;
   border: none;
@@ -401,7 +404,7 @@
   transition: background 0.3s;
 }
 
-.promociones button:hover {
+.newsletter button:hover {
   background-color: #ffd700;
 }
 
@@ -447,23 +450,32 @@
     gap: 30px;
   }
 
-  .promociones {
+  .newsletter {
     flex-direction: column;
   }
 
-  .promociones input,
-  .promociones button {
+  .newsletter input,
+  .newsletter button {
     border-radius: 6px;
   }
 
-  .promociones button {
+  .newsletter button {
     margin-top: 8px;
   }
 }
 
 @media (max-width: 576px) {
-  .edo-header, .edo-footer {
+  .edo-header {
     height: 50px;
+  }
+
+  .footer-edo-logo {
+    height: 50px;
+  }
+
+  .social-icon {
+    height: 24px;
+    width: 24px;
   }
 
   .title {

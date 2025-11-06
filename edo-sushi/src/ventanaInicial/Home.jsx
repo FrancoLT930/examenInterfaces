@@ -17,21 +17,9 @@ function Home({ onNavigateToReservation }) {
           <img src={logoHeader} alt="EDO Sushi Bar" />
         </div>
         <nav className="nav-links">
-          <button
-            onClick={() => window.open('https://edosushibar.com/locales', '_blank')}
-            className="nav-btn"
-          >
-            Locales
-          </button>
-          <button
-            onClick={() => window.open('https://edosushibar.com/carta', '_blank')}
-            className="nav-btn"
-          >
-            Cartas
-          </button>
-          <button onClick={onNavigateToReservation} className="nav-btn btn-reservas">
-            Reservas
-          </button>
+          <button onClick={() => window.open('https://edosushibar.com/locales', '_blank')} className="nav-btn"> Locales </button>
+          <button onClick={() => window.open('/assets/edocarta.pdf', '_blank')} className="nav-btn"> Cartas </button>
+          <button onClick={onNavigateToReservation} className="nav-btn btn-reservas"> Reservas </button>
         </nav>
       </header>
 

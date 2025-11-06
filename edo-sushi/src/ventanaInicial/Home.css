@@ -1,0 +1,254 @@
+
+body {
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden; 
+}
+
+/* HEADER */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #fff; 
+}
+
+.logo img {
+  width: 100px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links a {
+  color: #fff;
+  margin-left: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+.nav-links a:hover {
+  background-color: #f0c800;
+  color: #000;
+}
+
+/*MAIN*/
+.main-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.sushi-image img {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.text-content {
+  max-width: 500px;
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text img {
+  width: 60px;
+}
+
+.logo-text span,
+.text-content span {
+  color: #f0c800;
+}
+
+.logo-text span {
+  font-weight: bold;
+}
+
+.text-content hr {
+  border: 0.5px solid #f0c800;
+  margin: 15px 0;
+}
+
+.text-content h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.text-content p {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/*FOOTER*/
+.footer {
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px 80px;
+  font-size: 14px;
+}
+
+.footer-left img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  color: #f0c800;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.contact-info p {
+  margin-top: 5px;
+}
+
+.footer-center {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-center ul {
+  list-style: none;
+}
+
+.footer-center li {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.footer-right {
+  max-width: 300px;
+}
+
+.newsletter {
+  display: flex;
+  margin-top: 10px;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.newsletter button {
+  background-color: #f0c800;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.privacy {
+  margin-top: 10px;
+}
+
+.privacy a {
+  color: #f0c800;
+}
+
+.payment img {
+  width: 50px;
+  margin-top: 15px;
+  margin-right: 8px;
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links a {
+    margin: 10px;
+  }
+
+  .main-section {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .text-content {
+    text-align: center;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .footer-center {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .newsletter {
+    flex-direction: column;
+  }
+
+  .newsletter input,
+  .newsletter button {
+    border-radius: 5px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo img {
+    width: 60px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sushi-image img {
+    width: 100%;
+  }
+
+  .text-content h2 {
+    font-size: 20px;
+  }
+
+  .footer {
+    padding: 20px;
+  }
+
+  .footer-center {
+    gap: 10px;
+  }
+
+  .payment img {
+    width: 40px;
+  }
+}
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@ import edoLogo from './assets/edo-logo.png';
 import instagramIcon from './assets/instagram-icon.png'; 
 import facebookIcon from './assets/facebook-icon.png'; 
 import bookIcon from './assets/book-icon.png';
+import Home from './ventanaInicial/Home.jsx';
 
 
 function App() {

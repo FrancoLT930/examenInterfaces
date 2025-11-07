@@ -152,7 +152,6 @@ import bookIcon from './assets/book-icon.png';
             <label className="section-label">Selecciona mes y año:</label>
             <div className="month-year-select">
             <select className="dropdown half" value={selectedYear} onChange={(e) => setSelectedYear(Number(e.target.value))}>
-                <option value={2024}>2024</option>
                 <option value={2025}>2025</option>
                 <option value={2026}>2026</option>
             </select>

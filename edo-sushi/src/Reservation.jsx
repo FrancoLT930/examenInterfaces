@@ -46,6 +46,7 @@ import bookIcon from './assets/book-icon.png';
     const handleDateClick = (day) => {
         const date = new Date(selectedYear, selectedMonth, day);
         const today = new Date();
+        today.setHours(0, 0, 0, 0);
         if (date >= today) {
         setSelectedDate(day);
         setSelectedTime(null);
@@ -176,6 +177,7 @@ import bookIcon from './assets/book-icon.png';
             {days.map((day) => {
                 const date = new Date(selectedYear, selectedMonth, day);
                 const today = new Date();
+                today.setHours(0, 0, 0, 0); 
                 const isPast = date < today;
                 const color = isPast ? 'gray' : 'yellow';
                 const isSelected = selectedDate === day;
